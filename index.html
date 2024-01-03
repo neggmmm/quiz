@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>NEGM Quiz</title>
+</head>
+<body>
+  <header>
+    <h1>NEGM Quiz</h1>
+  </header>
+  <div id="score-notification" style="display: none;">
+    <p id="score-message"></p>
+  </div>
+  <main>
+    <form id="user-form" onsubmit="return submitUserInfo()">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" oninput="validateName()" pattern="[A-Za-z ]+" title="Please enter a valid name with only characters" required>
+      <div id="name-error" style="color: red;"></div>
+
+      <label for="age">Age:</label>
+      <input type="text" id="age" name="age" oninput="validateAge()" pattern="^(1[6-9]|[2-5][0-9]|60)$" title="Please enter a valid age between 16 and 60" required>
+      <div id="age-error" style="color: red;"></div>
+
+      <button type="button" id="next-page-btn" onclick="submitUserInfo()">Next Page</button>
+    </form>
+
+    <div id="quiz-page" style="display: none;">
+      <h2>Welcome to the Coding Knowledge Quiz!</h2>
+      <div id="quiz-questions"></div>
+      <button id="next-question-btn" onclick="nextQuestion()" disabled>Next Question</button>
+      <button id="submit-quiz-btn" onclick="submitQuiz()" style="display: none;">Submit Quiz</button>
+    </div>
+  </main>
+  
+  <footer>
+    <p>&copy; 2023 NEGM Quiz. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
